@@ -1,0 +1,32 @@
+@import '../../variables.scss';
+
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+
+  .listTitle {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    padding-bottom: 20px;
+    border-bottom: 4px solid $primary-color;
+
+    .listTitleItem {
+      &:first-child {
+        width: 150px;
+        margin-right: 40px;
+      }
+
+      &:nth-child(2) {
+        width: 150px;
+        margin-right: auto;
+      }
+
+      &:nth-child(3) {
+        width: 310px;
+      }
+    }
+  }
+}

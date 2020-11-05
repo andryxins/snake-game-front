@@ -1,0 +1,15 @@
+@import '../../variables.scss';
+
+.usersList {
+  margin-bottom: 30px;
+}
+
+.link {
+  color: $secondary-font-color;
+  text-decoration: none;
+
+  &:hover {
+    cursor: pointer;
+    color: $primary-color;
+  }
+}

@@ -1,0 +1,22 @@
+@import '../../variables.scss';
+
+.listItem {
+  display: flex;
+  text-align: center;
+  padding: 10px 0;
+
+  &:nth-child(1) {
+    border-bottom: 2px solid $primary-color;
+  }
+
+  .login {
+    margin-right: 40px;
+    width: 150px;
+  }
+
+  .scores {
+    margin-right: auto;
+    color: $primary-color;
+    width: 150px;
+  }
+}
