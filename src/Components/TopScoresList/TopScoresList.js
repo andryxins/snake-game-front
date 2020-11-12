@@ -21,12 +21,12 @@ const TopScoresList = () => {
       <div className={Styles.listTitle}>
         <span className={Styles.listTitleItem}>Login</span>
         <span className={Styles.listTitleItem}>Scores</span>
-        <span className={Styles.listTitleItem}>Id</span>
+        <span className={Styles.listTitleItem}>Top Level</span>
       </div>
       {users
-        .sort((a, b) => b.scores - a.scores)
-        .map(user => (
-          <li key={user.clientId}>
+        .sort((a, b) => b.topScores - a.topScores)
+        .map((user) => (
+          <li key={user._id}>
             <TopScoresListItem user={user} />
           </li>
         ))}

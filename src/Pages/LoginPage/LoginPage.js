@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { useLocalStorage, writeStorage } from '@rehooks/local-storage';
+import { signUp } from '../../ApiRequests/ApiRequests';
 import Styles from './LoginPage.module.scss';
-import User from '../../libs/User';
 
 const LoginPage = () => {
   const [user] = useLocalStorage('snakePlayer');
@@ -16,7 +16,17 @@ const LoginPage = () => {
   const history = useHistory();
 
   const startGameHandler = () => {
-    history.push('/');
+    signUp(login)
+      .then(({ user }) =>
+        writeStorage('snakePlayer', {
+          login: user.data.login,
+          scores: user.data.topScores,
+          level: user.data.topLevel,
+          token: user.token,
+        })
+      )
+      .then((_) => history.push('/'))
+      .catch((e) => console.log(e));
   };
 
   return (

@@ -1,6 +1,6 @@
-export default async newUser => {
+export default async (updatedUser) => {
   try {
-    localStorage.setItem('snakePlayer', JSON.stringify(newUser));
+    localStorage.setItem('snakePlayer', JSON.stringify(updatedUser));
 
     return true;
   } catch (e) {

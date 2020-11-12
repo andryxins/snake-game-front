@@ -10,23 +10,25 @@
     display: flex;
     justify-content: space-between;
     text-align: center;
+    width: 100%;
     padding-bottom: 20px;
     border-bottom: 4px solid $primary-color;
 
     .listTitleItem {
-      &:first-child {
-        width: 150px;
-        margin-right: 40px;
-      }
+      width: calc(100% / 3);
+      // &:first-child {
 
-      &:nth-child(2) {
-        width: 150px;
-        margin-right: auto;
-      }
+      //   margin-right: 40px;
+      // }
 
-      &:nth-child(3) {
-        width: 310px;
-      }
+      // &:nth-child(2) {
+      //   width: 150px;
+      //   margin-right: auto;
+      // }
+
+      // &:nth-child(3) {
+      //   width: 310px;
+      // }
     }
   }
 }

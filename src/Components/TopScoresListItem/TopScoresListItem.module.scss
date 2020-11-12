@@ -9,14 +9,13 @@
     border-bottom: 2px solid $primary-color;
   }
 
-  .login {
-    margin-right: 40px;
-    width: 150px;
+  .login,
+  .scores,
+  .level {
+    width: calc(100% / 3);
   }
 
   .scores {
-    margin-right: auto;
     color: $primary-color;
-    width: 150px;
   }
 }
