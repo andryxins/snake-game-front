@@ -1,21 +1,21 @@
 import React, { useState } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { useLocalStorage, writeStorage } from '@rehooks/local-storage';
-import { signUp } from '../../ApiRequests/ApiRequests';
+import { signUp, checkIsUserExist } from '../../ApiRequests/ApiRequests';
 import Styles from './LoginPage.module.scss';
 
 const LoginPage = () => {
-  const [user] = useLocalStorage('snakePlayer');
+  const [userDataFromLS] = useLocalStorage('snakePlayer');
 
   const [login, setLogin] = useState('');
 
-  const loginHandler = ({ target }) => {
+  const loginFieldHandler = ({ target }) => {
     setLogin(target.value);
   };
 
   const history = useHistory();
 
-  const startGameHandler = () => {
+  const startGameHandler = () =>
     signUp(login)
       .then(({ user }) =>
         writeStorage('snakePlayer', {
@@ -23,20 +23,40 @@ const LoginPage = () => {
           scores: user.data.topScores,
           level: user.data.topLevel,
           token: user.token,
+          id: user.data._id,
         })
       )
       .then((_) => history.push('/'))
       .catch((e) => console.log(e));
-  };
+
+  const loginHandler = () =>
+    checkIsUserExist(userDataFromLS.id)
+      .then(({ isExist }) => {
+        if (isExist) {
+          return history.push('/');
+        } else {
+          return signUp(userDataFromLS.login)
+            .then(({ user }) =>
+              writeStorage('snakePlayer', {
+                ...userDataFromLS,
+                login: user.data.login,
+                token: user.token,
+                id: user.data._id,
+              })
+            )
+            .then((_) => history.push('/'));
+        }
+      })
+      .catch((e) => console.log(e));
 
   return (
     <div className="container">
       <div className="pageWrapper">
-        {user ? (
+        {userDataFromLS ? (
           <>
-            <h1 className="pageTitle">{`Hello ${user.login}`}</h1>
-            <button className={Styles.btn}>
-              <Link to="/">Start Game</Link>
+            <h1 className="pageTitle">{`Hello ${userDataFromLS.login}`}</h1>
+            <button onClick={loginHandler} className={Styles.btn}>
+              Start Game
             </button>
           </>
         ) : (
@@ -46,7 +66,7 @@ const LoginPage = () => {
               className={Styles.input}
               type="text"
               value={login}
-              onChange={loginHandler}
+              onChange={loginFieldHandler}
             />
             <button
               className={Styles.btn}
