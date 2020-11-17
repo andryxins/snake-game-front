@@ -113,7 +113,7 @@ export default class GameScene extends Phaser.Scene {
             this.headPosition.x = Phaser.Math.Wrap(
               this.headPosition.x - 1,
               0,
-              38,
+              38
             );
             break;
 
@@ -121,7 +121,7 @@ export default class GameScene extends Phaser.Scene {
             this.headPosition.x = Phaser.Math.Wrap(
               this.headPosition.x + 1,
               0,
-              38,
+              38
             );
             break;
 
@@ -129,7 +129,7 @@ export default class GameScene extends Phaser.Scene {
             this.headPosition.y = Phaser.Math.Wrap(
               this.headPosition.y - 1,
               0,
-              18,
+              18
             );
             break;
 
@@ -137,7 +137,7 @@ export default class GameScene extends Phaser.Scene {
             this.headPosition.y = Phaser.Math.Wrap(
               this.headPosition.y + 1,
               0,
-              18,
+              18
             );
             break;
           default:
@@ -151,13 +151,13 @@ export default class GameScene extends Phaser.Scene {
           this.headPosition.x * 16,
           this.headPosition.y * 16,
           1,
-          this.tail,
+          this.tail
         );
 
         const hitBody = Phaser.Actions.GetFirst(
           this.body.getChildren(),
           { x: this.head.x, y: this.head.y },
-          1,
+          1
         );
 
         if (hitBody) {

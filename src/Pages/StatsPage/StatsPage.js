@@ -15,7 +15,7 @@ const StatsPage = () => {
         <div className={Styles.usersList}>
           <TopScoresList />
         </div>
-        <Link className={Styles.link} to="/">
+        <Link className="link" to="/">
           Back to game
         </Link>
       </div>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { useLocalStorage } from '@rehooks/local-storage';
-import { Redirect } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import Game from '../../Components/Game/Game';
 import Styles from './GamePage.module.scss';
 
@@ -14,6 +14,9 @@ const GamePage = () => {
         <div className={Styles.gameContainer}>
           <Game />
         </div>
+        <Link className="link" to="/stats">
+          Top scores
+        </Link>
       </div>
     </div>
   ) : (
