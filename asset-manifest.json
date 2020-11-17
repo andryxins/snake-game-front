@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/snake-game-front/static/css/main.86cdfdbc.chunk.css",
-    "main.js": "/snake-game-front/static/js/main.143bd3ca.chunk.js",
-    "main.js.map": "/snake-game-front/static/js/main.143bd3ca.chunk.js.map",
+    "main.js": "/snake-game-front/static/js/main.47d76505.chunk.js",
+    "main.js.map": "/snake-game-front/static/js/main.47d76505.chunk.js.map",
     "polyfills-css-shim.js": "/snake-game-front/static/js/polyfills-css-shim.81c74905.chunk.js",
     "polyfills-css-shim.js.map": "/snake-game-front/static/js/polyfills-css-shim.81c74905.chunk.js.map",
     "runtime-main.js": "/snake-game-front/static/js/runtime-main.eed94d9c.js",
@@ -25,6 +25,6 @@
     "static/js/runtime-main.eed94d9c.js",
     "static/js/3.7ba05907.chunk.js",
     "static/css/main.86cdfdbc.chunk.css",
-    "static/js/main.143bd3ca.chunk.js"
+    "static/js/main.47d76505.chunk.js"
   ]
 }
